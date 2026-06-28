@@ -1,0 +1,15 @@
+body{
+    font-family:Arial;
+    background-color:#f4f4f4;
+    text-align: center;
+}
+.car{
+    background:white;
+    margin: 40px;
+    padding: 10px;
+    border-radius:8px;
+
+}
+h1{
+    color:darkblue;
+}

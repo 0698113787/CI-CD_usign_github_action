@@ -1,0 +1,32 @@
+name: BMW store CI
+
+on:
+ push:
+  branches: [main]
+
+jobs:
+ build:
+  runs-on: windows-latest
+
+  steps:
+   - name: checkout code
+     uses: actions/checkout@v3
+
+   - name: set up python
+     uses: actions/setup-python@v4
+     with:
+     python-version: '3.11'
+
+   - name: install dependencies
+     run: pip install -r requirements.txt
+
+   - name: check app syntax 
+     run: python -m py_compile app.py
+
+#deploy (CD step)
+   - name: deploy to GitHub Pages
+     uses: peaceiris/actions-gh-pages@v3
+     with:
+      github_token: ${{secrets.GITHUB_TOKEN}}
+      publish_dir: ./templates
+     
